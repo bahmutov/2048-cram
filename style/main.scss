@@ -31,7 +31,7 @@ html, body {
 }
 
 body {
-  margin: 80px 0;
+  margin: 10px 0;
 }
 
 .heading:after {
@@ -73,7 +73,7 @@ h1.title {
   background: $game-container-background;
   padding: 15px 25px;
   font-size: $height;
-  height: $height;
+  /*height: $height;*/
   line-height: $height + 22px;
   font-weight: bold;
   border-radius: 3px;
@@ -171,7 +171,7 @@ hr {
 // Game field mixin used to render CSS at different width
 @mixin game-field {
   .game-container {
-    margin-top: 40px;
+    margin-top: 10px;
     position: relative;
     padding: $grid-spacing;
 
@@ -452,7 +452,7 @@ hr {
 }
 
 .game-explanation {
-  margin-top: 50px;
+  margin-top: 10px;
 }
 
 @include smaller($mobile-threshold) {
@@ -496,7 +496,7 @@ hr {
   @include game-field;
 
   .game-container {
-    margin-top: 20px;
+    margin-top: 10px;
   }
 
   // Rest of the font-size adjustments in the tile class
