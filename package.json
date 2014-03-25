@@ -1,0 +1,32 @@
+{
+  "name": "2048-cram",
+  "description": "2048 with pop up questions to play and cram!",
+  "version": "0.0.1",
+  "author": "Gleb Bahmutov <gleb.bahmutov@gmail.com>",
+  "bugs": {
+    "url": "https://github.com/bahmutov/2048-cram/issues"
+  },
+  "devDependencies": {
+    "grunt": "^0.4.4",
+    "grunt-contrib-jshint": "^0.9.2",
+    "grunt-contrib-sass": "^0.7.3",
+    "grunt-gh-pages": "^0.9.1",
+    "grunt-nice-package": "^0.2.3",
+    "grunt-replace": "^0.7.6",
+    "jshint-stylish": "^0.1.5",
+    "matchdep": "^0.3.0"
+  },
+  "homepage": "https://github.com/bahmutov/2048-cram",
+  "keywords": [
+    "2048"
+  ],
+  "license": "MIT",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/bahmutov/2048-cram.git"
+  },
+  "scripts": {
+    "test": "grunt"
+  }
+}
