@@ -1,0 +1,17 @@
+{
+  "name": "2048-cram",
+  "version": "0.0.1",
+  "homepage": "https://github.com/bahmutov/2048-cram",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "author": "Gleb Bahmutov <gleb.bahmutov@gmail.com>",
+  "keywords": [
+    "2048"
+  ]
+}

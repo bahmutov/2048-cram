@@ -53,11 +53,32 @@ module.exports = function (grunt) {
           'cache.manifest': 'cache.manifest.source'
         }
       }
+    },
+
+    sync: {
+      all: {
+        options: {
+          sync: ['author', 'name', 'version', 'private', 'license', 'keywords'],
+        }
+      }
+    },
+
+    bower: {
+      install: {
+        options: {
+          targetDir: 'bower_components',
+          copy: false,
+          verbose: true,
+          bowerOptions: {
+            forceLatest: true
+          }
+        }
+      }
     }
   });
 
   var plugins = require('matchdep').filterDev('grunt-*');
   plugins.forEach(grunt.loadNpmTasks);
 
-  grunt.registerTask('default', ['jshint', 'nice-package', 'sass', 'replace']);
+  grunt.registerTask('default', ['jshint', 'nice-package', 'sync', 'bower', 'sass', 'replace']);
 };
