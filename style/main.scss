@@ -3,7 +3,7 @@
 
 $field-width: 600px;
 $grid-spacing: 15px;
-$grid-row-cells: 5;
+$grid-row-cells: 4;
 $tile-size: ($field-width - $grid-spacing * ($grid-row-cells + 1)) / $grid-row-cells;
 $tile-border-radius: 3px;
 
@@ -469,7 +469,7 @@ hr {
   // Redefine variables for smaller screens
   $field-width: 280px;
   $grid-spacing: 10px;
-  $grid-row-cells: 5;
+  $grid-row-cells: 4;
   $tile-size: ($field-width - $grid-spacing * ($grid-row-cells + 1)) / $grid-row-cells;
   $tile-border-radius: 3px;
 
@@ -496,6 +496,10 @@ hr {
     margin-top: 0;
     padding: 15px 10px;
     min-width: 40px;
+
+    &:after {
+      display: none;
+    }
   }
 
   .heading {
