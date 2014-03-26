@@ -38,7 +38,6 @@ module.exports = function (grunt) {
         'style/*.css',
         'style/fonts/*.*',
         'meta/*.*',
-        'cache.manifest',
         'bower_components/jquery/dist/jquery.min.js',
         'bower_components/bootstrap/dist/js/bootstrap.min.js',
         'bower_components/bootbox/bootbox.js',
@@ -47,20 +46,6 @@ module.exports = function (grunt) {
         'bower_components/alertify/themes/alertify.core.css',
         'bower_components/alertify/themes/alertify.bootstrap.css'
       ]
-    },
-
-    replace: {
-      cache: {
-        options: {
-          variables: {
-            timestamp: '<%= grunt.template.today() %>'
-          },
-          prefix: '@@'
-        },
-        files: {
-          'cache.manifest': 'cache.manifest.source'
-        }
-      }
     },
 
     sync: {
@@ -88,5 +73,5 @@ module.exports = function (grunt) {
   var plugins = require('matchdep').filterDev('grunt-*');
   plugins.forEach(grunt.loadNpmTasks);
 
-  grunt.registerTask('default', ['jshint', 'nice-package', 'sync', 'bower', 'sass', 'replace']);
+  grunt.registerTask('default', ['jshint', 'nice-package', 'sync', 'bower', 'sass']);
 };
