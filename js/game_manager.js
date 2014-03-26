@@ -157,13 +157,11 @@ GameManager.prototype.move = function (direction) {
     });
   }).always(function () {
     if (!answeredCorrectly || moved) {
-      console.log('creating new tiles');
       self.addRandomTile();
       self.addRandomTile();
 
       if (!self.movesAvailable()) {
         self.over = true; // Game over!
-        console.log('game is over');
       }
 
       self.actuate();
