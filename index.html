@@ -2,21 +2,25 @@
 <html manifest="cache.manifest">
 <head>
   <meta charset="utf-8">
-  <title>2048 5x5</title>
+  <title>2048-cram</title>
 
   <link rel="stylesheet" type="text/css" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
   <link href="style/main.css" rel="stylesheet" type="text/css">
+  <link href="bower_components/alertify/themes/alertify.core.css" rel="stylesheet" type="text/css">
+  <link href="bower_components/alertify/themes/alertify.bootstrap.css" rel="stylesheet" type="text/css">
+
   <link rel="shortcut icon" href="favicon.ico">
   <link rel="apple-touch-icon" href="meta/apple-touch-icon.png">
   <meta name="apple-mobile-web-app-capable" content="yes">
 
   <meta name="HandheldFriendly" content="True">
   <meta name="MobileOptimized" content="320">
-  <meta name="viewport" content="width=device-width, target-densitydpi=160dpi, initial-scale=1.0, maximum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="viewport" content="width=device-width, target-densitydpi=160dpi, initial-scale=1.0, maximum-scale=1, user-scalable=no">
 
   <script src="bower_components/jquery/dist/jquery.min.js"></script>
   <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
   <script src="bower_components/bootbox/bootbox.js"></script>
+  <script src="bower_components/alertify/alertify.min.js"></script>
 </head>
 <body>
   <div class="container">
@@ -93,6 +97,7 @@
     <hr>
   </div>
 
+  <script src="js/riddler.js"></script>
   <script src="js/animframe_polyfill.js"></script>
   <script src="js/keyboard_input_manager.js"></script>
   <script src="js/html_actuator.js"></script>

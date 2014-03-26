@@ -50,6 +50,8 @@ KeyboardInputManager.prototype.listen = function () {
   };
 
   document.addEventListener("keydown", function (event) {
+    if (window.ask.isAsking) return;
+
     var modifiers = event.altKey || event.ctrlKey || event.metaKey ||
                     event.shiftKey;
     var mapped    = map[event.which];

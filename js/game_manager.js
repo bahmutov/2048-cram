@@ -111,57 +111,64 @@ GameManager.prototype.move = function (direction) {
   var vector     = this.getVector(direction);
   var traversals = this.buildTraversals(vector);
   var moved      = false;
+  var answeredCorrectly = false;
 
   // Save the current tile positions and remove merger information
   this.prepareTiles();
 
-  // Traverse the grid in the right direction and move tiles
-  traversals.x.forEach(function (x) {
-    traversals.y.forEach(function (y) {
-      cell = { x: x, y: y };
-      tile = self.grid.cellContent(cell);
+  window.ask().done(function () {
+    answeredCorrectly = true;
 
-      if (tile) {
-        var positions = self.findFarthestPosition(cell, vector);
-        var next      = self.grid.cellContent(positions.next);
+    // Traverse the grid in the right direction and move tiles
+    traversals.x.forEach(function (x) {
+      traversals.y.forEach(function (y) {
+        cell = { x: x, y: y };
+        tile = self.grid.cellContent(cell);
 
-        // Only one merger per row traversal?
-        if (next && next.value === tile.value && !next.mergedFrom) {
-          var merged = new Tile(positions.next, tile.value * 2);
-          merged.mergedFrom = [tile, next];
+        if (tile) {
+          var positions = self.findFarthestPosition(cell, vector);
+          var next      = self.grid.cellContent(positions.next);
 
-          self.grid.insertTile(merged);
-          self.grid.removeTile(tile);
+          // Only one merger per row traversal?
+          if (next && next.value === tile.value && !next.mergedFrom) {
+            var merged = new Tile(positions.next, tile.value * 2);
+            merged.mergedFrom = [tile, next];
 
-          // Converge the two tiles' positions
-          tile.updatePosition(positions.next);
+            self.grid.insertTile(merged);
+            self.grid.removeTile(tile);
 
-          // Update the score
-          self.score += merged.value;
+            // Converge the two tiles' positions
+            tile.updatePosition(positions.next);
 
-          // The mighty 2048 tile
-          if (merged.value === 2048) self.won = true;
-        } else {
-          self.moveTile(tile, positions.farthest);
+            // Update the score
+            self.score += merged.value;
+
+            // The mighty 2048 tile
+            if (merged.value === 2048) self.won = true;
+          } else {
+            self.moveTile(tile, positions.farthest);
+          }
+
+          if (!self.positionsEqual(cell, tile)) {
+            moved = true; // The tile moved from its original cell!
+          }
         }
-
-        if (!self.positionsEqual(cell, tile)) {
-          moved = true; // The tile moved from its original cell!
-        }
-      }
+      });
     });
-  });
+  }).always(function () {
+    if (!answeredCorrectly || moved) {
+      console.log('creating new tiles');
+      self.addRandomTile();
+      self.addRandomTile();
 
-  if (moved) {
-    this.addRandomTile();
-    this.addRandomTile();
+      if (!self.movesAvailable()) {
+        self.over = true; // Game over!
+        console.log('game is over');
+      }
 
-    if (!this.movesAvailable()) {
-      this.over = true; // Game over!
+      self.actuate();
     }
-
-    this.actuate();
-  }
+  });
 };
 
 // Get the vector representing the chosen direction

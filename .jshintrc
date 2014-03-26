@@ -8,7 +8,6 @@
     "eqnull": true,
     "proto": true,
     "supernew": true,
-    "noyield": true,
     "evil": true,
     "node": true,
     "boss": true,
