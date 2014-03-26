@@ -32,6 +32,7 @@ module.exports = function (grunt) {
 
     'gh-pages': {
       src: [
+        'README.md',
         'favicon.ico',
         'index.html',
         'js/*.js',
