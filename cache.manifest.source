@@ -3,6 +3,7 @@ CACHE MANIFEST
 
 CACHE:
 index.html
+js/riddler.js
 js/animframe_polyfill.js
 js/application.js
 js/game_manager.js

@@ -36,8 +36,16 @@ module.exports = function (grunt) {
         'index.html',
         'js/*.js',
         'style/*.css',
+        'style/fonts/*.*',
         'meta/*.*',
-        'cache.manifest'
+        'cache.manifest',
+        'bower_components/jquery/dist/jquery.min.js',
+        'bower_components/bootstrap/dist/js/bootstrap.min.js',
+        'bower_components/bootbox/bootbox.js',
+        'bower_components/alertify/alertify.min.js',
+        'bower_components/bootstrap/dist/css/bootstrap.min.css',
+        'bower_components/alertify/themes/alertify.core.css',
+        'bower_components/alertify/themes/alertify.bootstrap.css'
       ]
     },
 
