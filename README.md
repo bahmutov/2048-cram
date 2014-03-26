@@ -1,6 +1,6 @@
 # 2048-cram
 
-Play [2048-cram](http://glebbahmutov.com/2048-cram/) now.
+[Play 2048-cram now](http://glebbahmutov.com/2048-cram/)
 
 It is a clone of [2048 5x5](https://github.com/bahmutov/2048)
 with an occasional popup question to let you cram JavaScript topics.
