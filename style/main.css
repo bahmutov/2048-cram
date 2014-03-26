@@ -67,7 +67,7 @@ h1.title {
   text-align: right;
 }
 
-.score-container, .best-container {
+.correct-container, .wrong-container {
   position: relative;
   display: inline-block;
   background: #bbada0;
@@ -81,7 +81,7 @@ h1.title {
   margin-top: 12px;
   text-align: center;
 }
-.score-container:after, .best-container:after {
+.correct-container:after, .wrong-container:after {
   position: absolute;
   width: 100%;
   top: 4px;
@@ -92,7 +92,7 @@ h1.title {
   text-align: center;
   color: #eee4da;
 }
-.score-container .score-addition, .best-container .score-addition {
+.correct-container .score-addition, .wrong-container .score-addition {
   position: absolute;
   right: 30px;
   color: red;
@@ -109,12 +109,22 @@ h1.title {
   animation-fill-mode: both;
 }
 
-.score-container:after {
-  content: "Score";
+.correct-container {
+  background-color: #47a447;
+  border-color: #398439;
 }
 
-.best-container:after {
-  content: "Best";
+.wrong-container {
+  background-color: #d9534f;
+  border-color: #d43f3a;
+}
+
+.correct-container:after {
+  content: "Correct";
+}
+
+.wrong-container:after {
+  content: "Wrong";
 }
 
 p {
@@ -673,7 +683,7 @@ hr {
     margin: 0 auto;
   }
 
-  .score-container, .best-container {
+  .correct-container, .wrong-container {
     margin-top: 0;
     padding: 15px 10px;
     min-width: 40px;

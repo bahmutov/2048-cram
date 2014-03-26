@@ -37,7 +37,8 @@ GameManager.prototype.isGameTerminated = function () {
 GameManager.prototype.setup = function () {
   this.grid        = new Grid(this.size);
 
-  this.score       = 0;
+  this.correctAnswers = 0;
+  this.wrongAnswers = 0;
   this.over        = false;
   this.won         = false;
   this.keepPlaying = false;
@@ -68,15 +69,16 @@ GameManager.prototype.addRandomTile = function () {
 
 // Sends the updated grid to the actuator
 GameManager.prototype.actuate = function () {
+  /*
   if (this.scoreManager.get() < this.score) {
     this.scoreManager.set(this.score);
-  }
+  }*/
 
   this.actuator.actuate(this.grid, {
-    score:      this.score,
+    score:      this.correctAnswers,
     over:       this.over,
     won:        this.won,
-    bestScore:  this.scoreManager.get(),
+    bestScore:  this.wrongAnswers,
     terminated: this.isGameTerminated()
   });
 
@@ -111,13 +113,13 @@ GameManager.prototype.move = function (direction) {
   var vector     = this.getVector(direction);
   var traversals = this.buildTraversals(vector);
   var moved      = false;
-  var answeredCorrectly = false;
-
   // Save the current tile positions and remove merger information
   this.prepareTiles();
 
-  window.ask().done(function () {
-    answeredCorrectly = true;
+  window.ask().done(function (answeredCorrectly) {
+    if (Boolean(answeredCorrectly)) {
+      self.correctAnswers += 1;
+    }
 
     // Traverse the grid in the right direction and move tiles
     traversals.x.forEach(function (x) {
@@ -140,9 +142,6 @@ GameManager.prototype.move = function (direction) {
             // Converge the two tiles' positions
             tile.updatePosition(positions.next);
 
-            // Update the score
-            self.score += merged.value;
-
             // The mighty 2048 tile
             if (merged.value === 2048) self.won = true;
           } else {
@@ -155,17 +154,21 @@ GameManager.prototype.move = function (direction) {
         }
       });
     });
-  }).always(function () {
-    if (!answeredCorrectly || moved) {
+
+    if (moved) {
       self.addRandomTile();
       self.addRandomTile();
-
-      if (!self.movesAvailable()) {
-        self.over = true; // Game over!
-      }
-
-      self.actuate();
     }
+  }).fail(function () {
+    self.wrongAnswers += 1;
+    self.addRandomTile();
+    self.addRandomTile();
+  }).always(function () {
+    if (!self.movesAvailable()) {
+      self.over = true; // Game over!
+    }
+
+    self.actuate();
   });
 };
 

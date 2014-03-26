@@ -144,7 +144,7 @@
           if (wrong) {
             d.reject();
           } else {
-            d.resolve();
+            d.resolve(true);
           }
         }
       }

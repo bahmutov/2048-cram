@@ -1,7 +1,7 @@
 function HTMLActuator() {
   this.tileContainer    = document.querySelector(".tile-container");
-  this.correctAnswersContainer   = document.querySelector(".score-container");
-  this.bestContainer    = document.querySelector(".best-container");
+  this.correctAnswersContainer   = document.querySelector(".correct-container");
+  this.wrongContainer    = document.querySelector(".wrong-container");
   this.messageContainer = document.querySelector(".game-message");
 
   this.score = 0;
@@ -121,7 +121,7 @@ HTMLActuator.prototype.updateScore = function (score) {
 };
 
 HTMLActuator.prototype.updateBestScore = function (bestScore) {
-  this.bestContainer.textContent = bestScore;
+  this.wrongContainer.textContent = bestScore;
 };
 
 HTMLActuator.prototype.message = function (won) {

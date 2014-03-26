@@ -65,7 +65,7 @@ h1.title {
   text-align: right;
 }
 
-.score-container, .best-container {
+.correct-container, .wrong-container {
   $height: 25px;
 
   position: relative;
@@ -107,12 +107,22 @@ h1.title {
   }
 }
 
-.score-container:after {
-  content: "Score";
+.correct-container {
+  background-color: #47a447;
+  border-color: #398439;
 }
 
-.best-container:after {
-  content: "Best"
+.wrong-container {
+  background-color: #d9534f;
+  border-color: #d43f3a;
+}
+
+.correct-container:after {
+  content: "Correct";
+}
+
+.wrong-container:after {
+  content: "Wrong"
 }
 
 p {
@@ -482,7 +492,7 @@ hr {
     margin: 0 auto;
   }
 
-  .score-container, .best-container {
+  .correct-container, .wrong-container {
     margin-top: 0;
     padding: 15px 10px;
     min-width: 40px;
