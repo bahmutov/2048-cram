@@ -82,13 +82,14 @@ h1.title {
   text-align: center;
 
   &:after {
+    // score labels
     position: absolute;
     width: 100%;
     top: 4px;
     left: 0;
     text-transform: uppercase;
-    font-size: 13px;
-    line-height: 13px;
+    font-size: 11px;
+    line-height: 11px;
     text-align: center;
     color: $tile-color;
   }
