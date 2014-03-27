@@ -10,7 +10,7 @@
     topic: 'exceptions',
     question: multiline(function () {
 /*
-What is the exact value of <em>a</em> after this code runs?
+What is the exact value of <strong>a</strong> after this code runs?
 <pre>
 var a = 1;
 try {

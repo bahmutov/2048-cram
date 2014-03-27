@@ -10,10 +10,11 @@
     throw new Error('Zero questions!');
   }
 
-  var questionProbability = 0.1;
+  window.___askInterval = 20 * 1000; // seconds * ms
+  var lastAskTime = (new Date()).getTime();
 
   window.ask = function ask() {
-    if (Math.random() > questionProbability) {
+    if ((new Date()).getTime() - lastAskTime < window.___askInterval) {
       return $.when();
     }
 
@@ -48,6 +49,7 @@
       closeButton: false,
       buttons: {
         Submit: function () {
+          lastAskTime = (new Date()).getTime();
           var checkboxes = $('input', node);
           console.assert(checkboxes.length === scrambledAnswers.length, 'invalid checkbox number');
           var wrong = scrambledAnswers.some(function (choice, k) {
