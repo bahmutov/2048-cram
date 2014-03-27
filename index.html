@@ -21,6 +21,7 @@
   <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
   <script src="bower_components/bootbox/bootbox.js"></script>
   <script src="bower_components/alertify/alertify.min.js"></script>
+  <script src="bower_components/multiline/multiline.js"></script>
 </head>
 <body>
   <div class="container">
@@ -78,10 +79,20 @@
       <strong class="important">How to play:</strong> Use your <strong>arrow keys</strong> to move the tiles. When two tiles with the same number touch, they <strong>merge into one!</strong>
     </p>
     <p>
-      Once in a while the game will ask you a JavaScript question. Answer the multiple choice correctly -
-      and move where you wanted. Answer incorrectly - the move will be cancelled and new tiles will appear.
+      Every N seconds the game will ask you a JavaScript question.
+      Answer the multiple choice correctly - move where you wanted.
+      Answer incorrectly - the move will be cancelled and new tiles will appear.
       <strong>Questions might have zero, one, several or all correct answers</strong>
     </p>
+    <p>Answers to the questions can be found by studying these books:
+      <ul>
+        <li><a href="http://www.amazon.com/JavaScript-Patterns-Stoyan-Stefanov/dp/0596806752">JavaScript Patterns</a></li>
+        <li><a href="http://www.amazon.com/gp/product/B00ARPT74S">JavaScript Enlightenment</a></li>
+        <li><a href="http://www.amazon.com/Speaking-JavaScript-Axel-Rauschmayer-ebook/dp/B00INES03O">Speaking JavaScript</a></li>
+      </ul>
+      and a <a href="http://bahmutov.calepin.co/javascript-books.html">few others</a>
+    </p>
+    <p>
       Created by <a href="http://glebbahmutov.com/">Gleb Bahmutov</a> from
       the "official" <a href="https://github.com/gabrielecirulli/2048">github source</a> authored by
       <a href="http://gabrielecirulli.com/">Gabriele Cirulli</a>.
@@ -90,6 +101,7 @@
     <hr>
   </div>
 
+  <script src="js/questions.js"></script>
   <script src="js/riddler.js"></script>
   <script src="js/animframe_polyfill.js"></script>
   <script src="js/keyboard_input_manager.js"></script>
