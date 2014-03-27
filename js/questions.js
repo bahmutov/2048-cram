@@ -6,7 +6,7 @@
     throw new Error('missing multiline function');
   }
 
-  var questions = [{
+  var exceptionsQuestions = [{
     topic: 'exceptions',
     question: multiline(function () {
 /*
@@ -39,7 +39,7 @@ try {
       'throw "A problem"',
       'throw new Error("A problem")'
     ],
-    correct: [3]
+    correct: 3
   }, {
     topic: 'exceptions',
     question: 'Which Error types are part of the EcmaScript 5 standard?',
@@ -62,7 +62,7 @@ try {
       'throw new CustomError("Message", arg1, arg2)',
       'throw new Error("Message " + JSON.stringify(arg1))'
     ],
-    correct: [3]
+    correct: 3
   }, {
     topic: 'exceptions',
     question: 'Which properties does Error instance typically have?',
@@ -81,7 +81,7 @@ try {
       'RangeError', 'ReferenceError', 'SyntaxError', 'Error', 'InvalidArgumentError',
       'InvalidIndexError', 'Nothing, works just fine'
     ],
-    correct: [0]
+    correct: 0
   }, {
     topic: 'exceptions',
     question: 'What does this code throw? <pre>var foo = bar + 1</pre>',
@@ -95,8 +95,120 @@ try {
     choices: [
       'Error', 'ReferenceError', 'TypeError', 'SyntaxError', 'Throws nothing'
     ],
-    correct: [4]
+    correct: 4
   }];
 
-  window.questions = questions;
+  var miscQuestions = [];
+  miscQuestions.push({
+    topic: 'misc',
+    question: 'What is returned when you enter <pre>typeof typeof null</pre>',
+    choices: [
+      'null', 'undefined', '""', 'false', 'true', '0', 'string', 'number', 'throws an error', 'nothing'
+    ],
+    correct: [6]
+  });
+  miscQuestions.push({
+    topic: 'misc',
+    question: multiline(function () {/*
+Why do we see this code sometimes?
+<pre>
+(function (undefined) {
+  ...
+}());
+</pre>
+*/
+    }),
+    choices: [
+      'people have nothing better to do',
+      'undefined is null',
+      'undefined should be null',
+      'undefined could be redefined in EcmaScript 3',
+      'undefined should not be used as argument',
+      'this throws SyntaxError',
+      'this throws TypeError',
+      'this throws Error'
+    ],
+    correct: 3
+  });
+  miscQuestions.push({
+    topic: 'misc',
+    question: multiline(function () {/*
+Why do we see library code starting with semi-colon sometimes?
+<pre>
+;(function () {
+  ...
+}());
+</pre>
+*/
+    }),
+    choices: [
+      '; are free, no harm',
+      'this prevents concatenation errors',
+      'this is EcmaScript 3 standard',
+      'Douglas Crockford said so',
+      'JIT compiler needs boundaries',
+      'to allow JSON-P calls',
+      'to prevent infinite loops'
+    ],
+    correct: 1
+  });
+  miscQuestions.push({
+    topic: 'misc',
+    question: '<strong>"use strict";</strong> is used to (select all)',
+    choices: [
+      'prevent exceptions and be strict and silent',
+      'cause exceptions and be strict failures',
+      'support older browsers to some degree',
+      'avoid evil eval',
+      'Douglas Crockford said so'
+    ],
+    correct: [1, 2, 3]
+  });
+  miscQuestions.push({
+    topic: 'misc',
+    question: 'What is the <strong>preferred</strong> way of checking ' +
+      'if variable <strong>foo</strong> is not a number and cannot be converted into one?',
+    choices: [
+      'isNaN(foo)',
+      'foo !== +foo',
+      'foo !== Number(foo)',
+      '!isNumber(foo)',
+      'foo != +foo',
+      '!isFinite(foo)',
+      'typeof foo !== "number"',
+      'Number(foo) === Math.Infinity'
+    ],
+    correct: 0
+  });
+  miscQuestions.push({
+    topic: 'misc',
+    question: 'JavaScript is (select all that apply)',
+    choices: [
+      'statically typed',
+      'statically checked',
+      'dynamically typed',
+      'block-scoped',
+      'lexically scoped',
+      'functionally scoped',
+      'without built-in types',
+      'without type support'
+    ],
+    correct: [2, 4, 5]
+  });
+  miscQuestions.push({
+    topic: 'misc',
+    question: 'JavaScript hoists:',
+    choices: [
+      'variable declarations',
+      'functions',
+      'functional expressions',
+      'variable assignments',
+      'variable blocks',
+      'nothing',
+      'depends on run-time or browser'
+    ],
+    correct: [0, 1]
+  });
+
+  window.questions = miscQuestions.concat(exceptionsQuestions);
 }());

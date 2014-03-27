@@ -10,7 +10,7 @@
     throw new Error('Zero questions!');
   }
 
-  window.___askInterval = 20 * 1000; // seconds * ms
+  window.___askInterval = 2 * 1000; // seconds * ms
   var lastAskTime = (new Date()).getTime();
 
   window.ask = function ask() {
@@ -25,10 +25,11 @@
       'invalid random question index ' + randomQuestionIndex);
     var question = questions[randomQuestionIndex];
     var node = $('<p></p>').append(question.question);
+    var correctAnswers = Array.isArray(question.correct) ? question.correct : [question.correct];
     var scrambledAnswers = question.choices.map(function (answer, k) {
       return {
         answer: answer,
-        correct: question.correct.indexOf(k) !== -1
+        correct: correctAnswers.indexOf(k) !== -1
       };
     });
     function randomly() { return 0.5 - Math.random(); }
