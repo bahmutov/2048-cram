@@ -68,11 +68,20 @@ module.exports = function (grunt) {
           }
         }
       }
+    },
+
+    watch: {
+      all: {
+        files: ['*.js', 'js/*.js', 'style/*.scss'],
+        tasks: ['jshint', 'sass']
+      }
     }
   });
 
   var plugins = require('matchdep').filterDev('grunt-*');
   plugins.forEach(grunt.loadNpmTasks);
 
-  grunt.registerTask('default', ['jshint', 'nice-package', 'sync', 'bower', 'sass']);
+  grunt.registerTask('default', ['nice-package', 'sync', 'bower', 'build']);
+  grunt.registerTask('build', ['jshint', 'sass']);
+  grunt.registerTask('run', ['build', 'watch']);
 };
