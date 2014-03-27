@@ -6,6 +6,49 @@
     throw new Error('missing multiline function');
   }
 
+  var builtinTypes = [];
+  builtinTypes.push({
+    topic: 'built-in types',
+    question: 'How do you cast <strong>foo</strong> to Boolean true/false?',
+    choices: [
+      '(Boolean)foo',
+      'Boolean(foo)',
+      '!!foo',
+      '~foo',
+      'foo || foo'
+    ],
+    correct: [1, 2]
+  });
+  builtinTypes.push({
+    topic: 'built-in types',
+    question: 'How do you cast <strong>foo</strong> to Number?',
+    choices: [
+      '+foo',
+      'Number(foo)',
+      'parseInt(foo, 10)',
+      '1 + foo'
+    ],
+    correct: [0, 1, 2]
+  });
+  builtinTypes.push({
+    topic: 'built-in types',
+    question: 'How do you check if <strong>foo</strong> is a Number?',
+    choices: [
+      'typeof foo === "number"',
+      'foo instanceof Number',
+      'isNumber(foo)',
+      '!isNaN(foo)',
+      'foo === +foo'
+    ],
+    correct: [0, 4]
+  });
+  builtinTypes.push({
+    topic: 'built-in',
+    question: 'What is the value returned by <pre>[1, undefined, null].length</pre>',
+    choices: ['0', '1', '2', '3', '4', 'undefined', 'throws RangeError'],
+    correct: 3
+  });
+
   var exceptionsQuestions = [{
     topic: 'exceptions',
     question: multiline(function () {
@@ -209,6 +252,17 @@ Why do we see library code starting with semi-colon sometimes?
     ],
     correct: [0, 1]
   });
+  miscQuestions.push({
+    topic: 'misc',
+    question: '<strong>console.trace()</strong>',
+    choices: [
+      'prints current stack trace',
+      'profiles execution time',
+      'starts debugging session',
+      'measures how long a function takes to execute'
+    ],
+    correct: 0
+  });
 
-  window.questions = miscQuestions.concat(exceptionsQuestions);
+  window.questions = miscQuestions.concat(exceptionsQuestions, builtinTypes);
 }());
