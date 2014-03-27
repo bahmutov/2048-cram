@@ -45,7 +45,8 @@ module.exports = function (grunt) {
         'bower_components/alertify/alertify.min.js',
         'bower_components/bootstrap/dist/css/bootstrap.min.css',
         'bower_components/alertify/themes/alertify.core.css',
-        'bower_components/alertify/themes/alertify.bootstrap.css'
+        'bower_components/alertify/themes/alertify.bootstrap.css',
+        'bower_components/multiline/multiline.js',
       ]
     },
 
