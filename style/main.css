@@ -640,8 +640,9 @@ hr {
 
   .correct-container, .wrong-container {
     margin-top: 0;
-    padding: 15px 10px;
+    padding: 8px 10px 2px 10px;
     min-width: 40px;
+    line-height: 20px;
   }
   .correct-container:after, .wrong-container:after {
     display: none;

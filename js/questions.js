@@ -1,7 +1,36 @@
 (function getQuestions() {
   'use strict';
 
+  /* global multiline */
+  if (typeof multiline !== 'function') {
+    throw new Error('missing multiline function');
+  }
+
   var questions = [{
+    topic: 'exceptions',
+    question: multiline(function () {
+/*
+What is the exact value of <em>a</em> after this code runs?
+<pre>
+var a = 1;
+try {
+  throw new Error(a);
+  a = 2;
+} catch (err) {
+  a = err.message;
+}</pre>
+*/
+    }),
+    choices: [
+      'a = 1',
+      'a = 2',
+      'a = undefined',
+      'a = "1"',
+      'a = "2"',
+      'a = "Error"'
+    ],
+    correct: [3]
+  }, {
     topic: 'exceptions',
     question: 'What is the <b>recommended</b> way for throwing an exception?',
     choices: [
@@ -45,25 +74,6 @@
       'timestamp'
     ],
     correct: [2, 3]
-  }, {
-    topic: 'exceptions',
-    question: 'What is the value of <em>a</em> after this code runs?\n' +
-      '<pre>var a = 1;\n' +
-      'try {\n' +
-      '  throw new Error(a);\n' +
-      '  a = 2;\n' +
-      '} catch (err) {\n' +
-      '  a = err.message;\n' +
-      '}</pre>',
-    choices: [
-      'a = 1',
-      'a = 2',
-      'a = undefined',
-      'a = "1"',
-      'a = "2"',
-      'a = "Error"'
-    ],
-    correct: [3]
   }, {
     topic: 'exceptions',
     question: 'What does this code throw? <pre>new Array(-1)</pre>',

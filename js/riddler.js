@@ -6,6 +6,9 @@
   if (!Array.isArray(questions)) {
     throw new Error('missing questions array');
   }
+  if (!questions.length) {
+    throw new Error('Zero questions!');
+  }
 
   var questionProbability = 0.1;
 
