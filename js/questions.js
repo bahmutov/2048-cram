@@ -29,7 +29,7 @@ try {
       'a = "2"',
       'a = "Error"'
     ],
-    correct: [3]
+    correct: 3
   }, {
     topic: 'exceptions',
     question: 'What is the <b>recommended</b> way for throwing an exception?',
@@ -88,7 +88,7 @@ try {
     choices: [
       'Error', 'ReferenceError', 'TypeError', 'SyntaxError', 'Nothing, works just fine'
     ],
-    correct: [1]
+    correct: 1
   }, {
     topic: 'exceptions',
     question: 'What does this throw in a browser? <pre>console.assert(false, "bad value")</pre>',
@@ -105,7 +105,7 @@ try {
     choices: [
       'null', 'undefined', '""', 'false', 'true', '0', 'string', 'number', 'throws an error', 'nothing'
     ],
-    correct: [6]
+    correct: 6
   });
   miscQuestions.push({
     topic: 'misc',
