@@ -10,7 +10,7 @@
     throw new Error('Zero questions!');
   }
 
-  window.___askInterval = 2 * 1000; // seconds * ms
+  window.___askInterval = 20 * 1000; // seconds * ms
   var lastAskTime = (new Date()).getTime();
 
   window.ask = function ask() {
